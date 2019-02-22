@@ -5,7 +5,7 @@
  * @version 2/19/19
  */
 
-public class Calculus3 extends Homework3{
+public class Calculus3 extends Homework3 implements Processing{
 
 	private int pages;
 	//Constructor that calls Homework constructor
@@ -22,15 +22,15 @@ public class Calculus3 extends Homework3{
 	
 	//Formatting method
 	public String toString() {
-		String output = getSubject() + " - " + "read " + getPages() + " pages.";
+		String output = "Before reading: " + getSubject() + " - " + getPages() + "\n" +
+						"After reading: " + getSubject() + " - " + (getPages() - pagesRead);
 		return output;
 	}
 
 	@Override
 	public void work(int pages) {
 		// TODO Auto-generated method stub
-		int pagesRead = 0 + (int)(Math.random() * ((pages - 0) + 1));
-		this.pages = pages - pagesRead;
+		int pagesRead = 0 + (int)(Math.random() * ((getPages() - 0) + 1));
 		
 	}
 
