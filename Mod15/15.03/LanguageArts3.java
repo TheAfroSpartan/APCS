@@ -6,7 +6,6 @@
  */
 public class LanguageArts3 extends Homework3 implements Processing{
 
-	private int pagesRead;
 	//Constructor that calls Homework constructor 
 	public LanguageArts3() {
 		super();
@@ -21,15 +20,17 @@ public class LanguageArts3 extends Homework3 implements Processing{
 	
 	//Formatting method
 	public String toString() {
-		String output = "Before reading: " + getSubject() + " - " + getPages() + "\n" +
-						"After reading: " + getSubject() + " - " + (getPages() - pagesRead);
+		String output = getSubject() + " - " + "read " + getPages() + " pages.";
 		return output;
 	}
 
 	@Override
 	public void work() {
 		
-		 pagesRead = 0 + (int)(Math.random() * ((getPages() - 0) + 1));	
+		 int pagesRead = 0 + (int)(Math.random() * ((getPages() - 0) + 1));	
+		 String output = "Before reading: " + getSubject() + " - " + getPages() + "\n" +
+				 "After reading: " + getSubject() + " - " + (getPages() - pagesRead);
+		System.out.println(output);
 		
 	}
 
