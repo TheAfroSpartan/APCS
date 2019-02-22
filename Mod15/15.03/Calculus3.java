@@ -28,7 +28,7 @@ public class Calculus3 extends Homework3 implements Processing{
 	}
 
 	@Override
-	public void work(int pages) {
+	public void work() {
 		// TODO Auto-generated method stub
 		int pagesRead = 0 + (int)(Math.random() * ((getPages() - 0) + 1));
 		
