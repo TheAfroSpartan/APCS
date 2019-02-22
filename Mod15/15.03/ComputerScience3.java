@@ -4,8 +4,10 @@
  * @author Andrew Owens
  * @version 2/19/19
  */
-public class ComputerScience3 extends Homework3{
+public class ComputerScience3 extends Homework3 implements Processing{
 
+	private String pagesRead;
+	
 	//Constructor that calls Homework Constructor
 	public ComputerScience3() {
 		super();
@@ -20,13 +22,15 @@ public class ComputerScience3 extends Homework3{
 	
 	//Formatting method
 	public String toString() {
-		String output = getSubject() + " - " + "read " + getPages() + " pages.";
+		String output = "Before reading: " + getSubject() + " - " + getPages() + "\n" +
+						"After reading: " + getSubject() + " - " + (getPages() - pagesRead);
 		return output;
 	}
 
 	@Override
 	public void work(int pages) {
 		// TODO Auto-generated method stub
+		pagesRead = 
 		
 	}
 	
