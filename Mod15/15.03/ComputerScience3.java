@@ -6,7 +6,7 @@
  */
 public class ComputerScience3 extends Homework3 implements Processing{
 
-	private String pagesRead;
+	private int pagesRead;
 	
 	//Constructor that calls Homework Constructor
 	public ComputerScience3() {
@@ -28,9 +28,9 @@ public class ComputerScience3 extends Homework3 implements Processing{
 	}
 
 	@Override
-	public void work(int pages) {
+	public void work() {
 		// TODO Auto-generated method stub
-		pagesRead = 
+		pagesRead = 0 + (int)(Math.random() * ((getPages() - 0) + 1));
 		
 	}
 	
