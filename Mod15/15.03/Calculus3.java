@@ -7,7 +7,7 @@
 
 public class Calculus3 extends Homework3 implements Processing{
 
-	private int pages;
+	private int pagesRead;
 	//Constructor that calls Homework constructor
 	public Calculus3() {
 		super();
@@ -30,7 +30,7 @@ public class Calculus3 extends Homework3 implements Processing{
 	@Override
 	public void work() {
 		// TODO Auto-generated method stub
-		int pagesRead = 0 + (int)(Math.random() * ((getPages() - 0) + 1));
+		pagesRead = 0 + (int)(Math.random() * ((getPages() - 0) + 1));
 		
 	}
 
