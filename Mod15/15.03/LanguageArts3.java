@@ -27,9 +27,9 @@ public class LanguageArts3 extends Homework3 implements Processing{
 	}
 
 	@Override
-	public void work(int pages) {
+	public void work() {
 		
-		 pagesRead = 0 + (int)(Math.random() * ((pages - 0) + 1));	
+		 pagesRead = 0 + (int)(Math.random() * ((getPages() - 0) + 1));	
 		
 	}
 
