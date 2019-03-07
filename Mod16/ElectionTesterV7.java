@@ -28,7 +28,7 @@ public class ElectionTesterV7 {
 		System.out.println();
 		
 		insertCandidate(candidates, 2, "Cam Cavasso", 42480);
-		System.out.println("<< In position 3, add Cam Cavasso, 42480 votes >>");
+		System.out.println("<< Remove candidate at position 3 >>");
         System.out.println();
 		
 		formatResults(candidates);
@@ -37,7 +37,7 @@ public class ElectionTesterV7 {
 		System.out.println();
 		
 		insertCandidate2(candidates, "David Ige", "Tulsi Gabbard", 153132);
-		System.out.println("<< Before David Ige, add Tulsi Gabbard, 153132 votes >>");
+		System.out.println("<< Remove Andrew Owens >>");
         System.out.println();
         
         formatResults(candidates);
@@ -154,5 +154,38 @@ public class ElectionTesterV7 {
         candidates[location] = new Candidate(name, votes);
 		
 	}
+    
+    public static void deleteByLoc(Candidate[] candidates, int location){
+        
+        if((location > 0) && (location < candidates.length)){
+            
+            for(int index = location; index < candidates.length - 1; index++)
+                candidates[index] = candidates[index + 1];
+            
+                candidates[candidates.length - 1] = null;
+        }
+    }
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
 	 
 }
