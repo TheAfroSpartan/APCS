@@ -1,4 +1,9 @@
-
+/**
+* Purpose: Test the Store class by initializing private variables.
+*
+*@author: Andrew Owens
+*@version: 3/25/19
+*/
 public class StoreTester {
 
 	public static void main(String[] args) {
