@@ -4,12 +4,21 @@
 *@author: Andrew Owens
 *@version: 3/25/19
 */
+import java.util.Scanner;
+
 public class StoreTester {
 
 	public static void main(String[] args) {
 		
 		Store[] items = new Store [11];
-		Store[] dest = new Store [11];
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("<< Enter 1 for Ascending or 2 for Descending >>");
+		int input = scan.nextInt();
+		
+		System.out.println();
+		System.out.println();
 		
 		items[0] = new Store ("Beach Towel", 50451098, 12.50, 20);
 		items[1] = new Store ("Coffee Maker", 51077471, 19.99, 15);
@@ -23,34 +32,76 @@ public class StoreTester {
 		items[9] = new Store ("Men's Razor", 51150426, 9.00, 40);
 		items[10] = new Store ("Apple AirPods", 52106337, 159.99, 30);
 		
+		System.out.println("<< Unsorted List >>");
 		
-		System.out.println("<<Sorting items by Item Name >>");
-		System.out.println("<< Ascending Order >>");
-		
-	      items = sortByName(items);
 	      for(int i = 0; i < items.length; i++)
 	           System.out.println(items[i] );
 	      
 	      System.out.println();
 		
 	      System.out.println("_______________________________________________");
-	      System.out.println();
+	      System.out.println(); 
+		
+		//loop for ascension or descension
+		if(input == 1) {
+			
+			System.out.println("<< Sorting items by Item Name >>");
+			System.out.println("<< Ascending Order >>");
+			
+		      items = sortByName(items);
+		      for(int i = 0; i < items.length; i++)
+		           System.out.println(items[i] );
+		      
+		      System.out.println();
+			
+		      System.out.println("_______________________________________________");
+		      System.out.println(); 
+		      
+		      System.out.println("<<Sorting Items by Price >>");
+			  System.out.println("<< Ascending Order >>");
+			  
+		      sortByPrice(items);
+		      for(int i = 0; i < items.length; i++)
+			         System.out.println(items[i] );
+		      
+		      System.out.println();
+		      
+		      System.out.println("_______________________________________________");
+		      System.out.println();
+		}
+		
+		else if(input == 2) {
+			
+			System.out.println("<<Sorting items by Item Name >>");
+			System.out.println("<< Descending Order >>");
+			
+		      items = sortByNameDesc(items);
+		      for(int i = 0; i < items.length; i++)
+		           System.out.println(items[i] );
+		      
+		      System.out.println();
+			
+		      System.out.println("_______________________________________________");
+		      System.out.println();
+		      
+		      System.out.println("<<Sorting items by Item Price >>");
+			  System.out.println("<< Descending Order >>");
+				
+			  sortByPriceDesc(items);
+			  for(int i = 0; i < items.length; i++)
+			       System.out.println(items[i] );
+			      
+			  System.out.println();
+				
+			  System.out.println("_______________________________________________");
+		      System.out.println();
+		}
 	      
-	      System.out.println("<<Sorting Items by Price >>");
+	      
+	      
+	      System.out.println("<<Sorting Items by Product Number >>");
 		  System.out.println("<< Ascending Order >>");
-		  
-	      sortByPrice(items);
-	      for(int i = 0; i < items.length; i++)
-		         System.out.println(items[i] );
-	      
-	      System.out.println();
-	      
-	      System.out.println("_______________________________________________");
-	      System.out.println();
-	      mergeSortProductNum(items, 0, items.length-1);
-	      System.out.println("<<Sorting items by product number >>");
-		  System.out.println("<< Ascending Order >>");
-		  
+		  mergeSortProductNum(items, 0, items.length-1);
 	      for(int i = 0; i < items.length; i++)
 		        System.out.println(items[i] );
 	     
@@ -94,9 +145,37 @@ public class StoreTester {
         return dest;
     }
 	
+	public static Store[] sortByNameDesc(Store[] items) {
+		
+		Store[] dest = new Store[ items.length ];
+
+        for( int i = 0 ; i < items.length ; i++ )
+        {
+            Store next = items[ i ];
+            int insertIndex = 0;
+            int k = i;
+            while( k > 0 && insertIndex == 0 )
+            {
+                if( next.getName().compareTo( dest[k-1].getName() ) < 0 )
+                {
+                    insertIndex = k;
+                }
+                else
+                {
+                    dest[ k ] = dest[ k - 1 ];
+                }
+                k--;
+            }
+
+            dest[ insertIndex ] = next;
+            
+        } 
+        return dest;
+	}
+	
 	/**
-	 * Sorting method that sorts the items y the year in which they were produced
-	 * Uses sorting algorithm.
+	 * Selection Method 
+	 * Purpose: Sorts the items by the price.
 	 * @param items
 	 */
 	public static void sortByPrice(Store[] items)
@@ -119,10 +198,30 @@ public class StoreTester {
 		}
     }
 	
+	public static void sortByPriceDesc(Store[] items) {
+		
+		int posmax, i, k;
+		
+		for ( i = 0 ; i < items.length - 1; i++ )
+		{
+		  posmax = items.length - 1;
+
+		  for ( k = items.length - 1 ; k >= i ; k-- )
+		  {
+		    if ( items[k].getPrice() > items[posmax].getPrice())
+		      posmax = k;
+		  }
+
+		  Store temp = items[ i ];
+		  items[ i ] = items[ posmax ];
+		  items[ posmax ] = temp;
+		}
+	}
+	
 	/**
 	 * Purpose: Divides array into smaller segments until there is only a single element per array
 	 * Divide and Conquer
-	 * @param movies
+	 * @param items
 	 * @param low
 	 * @param high
 	 */
@@ -141,7 +240,7 @@ public class StoreTester {
 	
 	/**
 	 * Purpose: Merge function that combines the arrays from mergeSortYear
-	 * @param movies
+	 * @param items
 	 * @param low
 	 * @param mid
 	 * @param high
