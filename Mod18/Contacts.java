@@ -1,4 +1,8 @@
-
+/**
+ * Purpose: Defines a Contact object
+ * @author Andrew Owens
+ * @version 4/3/19
+ */
 public class Contacts {
 
 	private String name, relation, birthday, email, phoneNum;
@@ -55,7 +59,12 @@ public class Contacts {
 	public String toString() {
 		
 		String number = phoneNum.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1)$2-$3");
-		String output = name + ", " + relation + ", " + birthday + ", " + number + ", " + email;
-		return output;
+		String numFormat = String.format("%-25s", number);
+		String names = String.format("%-25s", name);
+		String relationship = String.format("%-25s", relation);
+		String birth = String.format("%-15s", birthday);
+		String emailAddress = String.format("%-30s", email);
+		
+		return names + relationship + birth + numFormat + emailAddress;
 	}
 }
