@@ -1,0 +1,97 @@
+Name:  Andrew Owens
+Date:  4/15/19
+19.03 Elevens Lab Worksheet
+Directions: Make note of your responses to the following questions as you work through the activities and exercise in the lesson. 
+Activity 6 Questions
+
+1.	List all possible plays for the board 5 4 2• 6 A J K• 5 2
+
+The 5♠ can pair with the 6or the 5can pair with the 6.
+2.	If the deck is empty and the board has three cards left, must they be J, Q, and K? Why or why not?
+Simply put, the answer is yes. 
+In a deck of 52 cards, there are 12 face cards. The game of elvens works in such a way that the number of face cards in the deck plus the number of face cards on the board must be divisble by 3. This means that if the deck is empty, the three remaining cards on the board must be a Jack, Queen, and King. If this isn’t the case, then tha means each face card wasn’t dealt the same number of tmes. This cannot happen if the number of face cards in the deck is even.
+
+3.	Does the game involve any strategy? That is, when more than one play is possible, does it matter which one is chosen? Briefly explain your answer.
+There really isn’t strategy to this game. It doesn’t matter how you pair the cards; the only way to reduce the amount of cards in the deck is by pairing the cards on the board to equal eleven. You can pair a 9 and 2 or an ace and a king, the difference doesn’t matter.
+
+Activity 7 Questions
+
+1.	What items would be necessary if you were playing a game of Elevens at your desk (not on the computer)? List the private instance variables needed for the ElevensBoard class.
+I’d only need a deck of cards if I were to play a game of Elevens at my desk. 
+The ElevensBoard class would need Card[]  instance variables for the list of ranks,suits,points. I’d also need Deck instance variables to define the deck of cards.
+
+2.	Write an algorithm that describes the actions necessary to play the Elevens game.
+
+Shuffle deck;
+Deal 9 cards;
+While(A move is possible){
+If(a pair that equals 11 exists){
+Remove those cards;
+Replace cards if possible;
+}
+Else if(J,Q,K are on the board){
+Remove those cards;
+Replace cards if possible;
+}
+If(No cards are left)
+You win;
+Else
+You lose;
+}
+
+3.	In the partially-implemented ElevensBoard.java file, does the class contain all the state and behavior necessary to play the game? Explain. 
+No because the methods that aren’t completed are the ones that select the cards to be removed, so you wouldn’t be able to do anything.
+
+4.	ElevensBoard.java contains three helper methods. These helper methods are private
+because they are only called from the ElevensBoard class.
+
+a.	Where is the dealMyCards method called in ElevensBoard?
+ElevensBoard constructor and newGame method.
+
+b.	Which public methods should call the containsPairSum11 and containsJQK
+isLegal and anotherPlayIsPossible should call the methods.
+
+	0	1	2	3	4	5	6	7	8
+cards	J	6	null	2	null	null	A	4	null
+returned
+list	0	0	1	3	6	7			
+c.	Suppose that cards contains the elements shown below. Trace the execution of the cardIndexes method to determine what list will be returned. Complete the diagram below by filling in the elements of the returned list, and by showing how those values index cards. Note that the returned list may have less than nine elements.
+
+
+
+
+
+
+
+d.	Which one of the methods that you identified in question 4b above needs to call the cardIndexes method before calling the containsPairSum11 and containsJQK methods? Why?
+
+anotherPlayIsPossible needs call the methods in this order because it needs to get the indexes of all the cards on the board and then check if there is a pair that equals eleven or if a J,Q, and K are present on the board.
+
+
+Activity 8 Questions
+1.	Discuss the similarities and differences between the games Elevens, Thirteens, and Tens.
+
+2.	The instance variables for cards and deck are declared in the Board class. But it is the ElevensBoard class that "knows" the board size, and the ranks, suits, and point values of the cards in the deck. How do the Board instance variables get initialized with the ElevensBoard values? What is the exact mechanism?
+
+3.	List the abstract methods in Board.java. These methods are implemented in ElevensBoard. Do they cover all the differences between Elevens, Thirteens, and Tens as discussed in question 1? Why or why not?
+
+Activity 9 Exercise Results
+1.	After running the ElevensGUIRunner.java class, describe what you see and experience. Take a picture of the screen and paste it below, if you like, along with the description.
+
+Activity 9 Questions
+1.	The size of the board is one of the differences between Elevens and Thirteens. Why is size not an abstract method?
+
+2.	Why are there no abstract methods dealing with the selection of the cards to be removed or replaced in the array cards?
+
+3.	Another way to create "IS-A" relationships is by implementing interfaces. Suppose that instead of creating an abstract Board class, we created the following Board interface, and had ElevensBoard implement it. Would this new scheme allow the Elevens GUI to call isLegal and anotherPlayIsPossible polymorphically? Would this alternate design work as well as the abstract Board class design? Why or why not?
+
+public interface Board
+{
+    boolean isLegal(List<Integer> selectedCards);
+
+    boolean anotherPlayIsPossible();
+}
+
+
+
+
