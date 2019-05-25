@@ -1,0 +1,8 @@
+	Average: 	   2.4		  961.1		110.76
+	Minimum: 	   1		  882		74.80
+	Maximum: 	   5		 1000		184.12
+	Cat 1: 62
+	Cat 2: 24
+	Cat 3: 28
+	Cat 4: 33
+	Cat 5: 9
